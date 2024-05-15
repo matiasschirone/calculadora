@@ -1,23 +1,64 @@
-def sumar(a, b):
-    
+def sumar(a: int, b: int)->int:
+    """Realiza la suma de dos valores
+
+    Args:
+        a (int): Primer entero de la suma
+        b (int): Segundo entero de la suma
+
+    Returns:
+        int: Devuelve la suma del entero a  y el entero b
+    """
     return a + b
 
-def restar(a, b):
-    
+def restar(a: int, b: int)->int:
+    """Realiza la resta de dos valores
+
+    Args:
+        a (int): Primer valor ingresado
+        b (in): Segundo valor ingresado
+
+    Returns:
+        int: Devuelve la resta estre lñe valor a y el valor b
+    """
     return a - b
 
-def dividir(a, b):
-    
+def dividir(a: int, b: int)->float:
+    """_summary_
+
+    Args:
+        a (int): Primer valor ingresado (dividendo)
+        b (int): Segundovalor ingresado (divisor)
+
+    Returns:
+        float: Devuelve la divicion entre los valores ingresados (a/b)
+    """
     if b == 0:
         return "No es posible dividir por cero"
     return a / b
 
-def multiplicar(a, b):
-   
+def multiplicar(a: int, b: int)->int:
+    """Realiza la multiplicacion entre los valores ingresados
+
+    Args:
+        a (int): Primer valor ingresado
+        b (int): Segundo valor ingresado
+
+    Returns:
+        int: Devuelve la multiplicacion entre los valores a y b
+    """
     return a * b
 
 def factorial(n):
-    """Devuelve el factorial de n"""
+    """
+    Calcula el factorial de un número entero n.
+
+    Args:
+        n (int): El número del cual se va a calcular el factorial.
+
+    Returns:
+        int: El factorial de n.
+        str: Un mensaje de error si n es un número negativo.
+    """
     if n < 0:
         return "No se puede calcular el factorial de un número negativo"
     if n == 0 or n == 1:
