@@ -1,11 +1,16 @@
 
 from funciones_matematicas import *
 
-def menu()->str:
-    """_summary_
+def menu(a, b)->str:
+    """
+    Muestra un menú de opciones y solicita al usuario que ingrese una opción.
+
+    Args:
+        a (int): El valor actual del primer operando (A).
+        b (int): El valor actual del segundo operando (B).
 
     Returns:
-        str: _description_
+        str: La opción seleccionada por el usuario.
     """
     limpiar_pantalla()
     print(f"{'menu de opciones':^50s}")
@@ -14,6 +19,10 @@ def menu()->str:
     print("3- Calcular todas las operaciones")
     print("4. Informar resultados")
     print("5- Salir")
+    if a is not None:
+        print(f"Operando 1 (A) = {a}")
+    if b is not None:
+        print(f"Operando 2 (B) = {b}")
     return input("Ingrese una opcion: ")
 
 def operando1():

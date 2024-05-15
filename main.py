@@ -7,7 +7,7 @@ resultados = None
 
 while True:
     
-    match menu():
+    match menu(a, b):
         case "1":
             a = operando1()
         case "2":
@@ -24,5 +24,5 @@ while True:
                 print("Primero debes calcular las operaciones.")
         case "5":
             break
-
+        
     pausar()
