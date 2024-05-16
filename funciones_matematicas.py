@@ -29,10 +29,8 @@ def dividir(a: int, b: int)->float:
         b (int): Segundovalor ingresado (divisor)
 
     Returns:
-        float: Devuelve la division entre los valores ingresados (a/b)
+        Devuelve la division entre los valores ingresados (a/b)
     """
-    if b == 0:
-        return "No es posible dividir por cero"
     return a / b
 
 def multiplicar(a: int, b: int)->int:
@@ -69,6 +67,6 @@ def factorial(n):
 
 # print (sumar(4,4))
 # print (restar(4,3))
-# print (dividir(4,2))
+print (dividir(5,2))
 # print (factorial(4))
 # print (factorial(8))

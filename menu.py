@@ -45,36 +45,67 @@ def operando2():
     b = int(input("Ingrese el valor de B: "))
     return b
     
-def calculo_operaciones(a: int, b: int)->list:
+    
+def menu_operaciones():
     """
-    Calcula todas las operaciones matemáticas (suma, resta, división, multiplicación y factoriales) utilizando los operandos dados.
+    Muestra un menú de operaciones y solicita al usuario que seleccione una opción.
+
+    Returns:
+        str: La opción seleccionada por el usuario.
+    """
+    limpiar_pantalla()
+    print(f"{'Menu de Operaciones':^50s}")
+    print("a) Calcular la suma (A+B)")
+    print("b) Calcular la resta (A-B)")
+    print("c) Calcular la división (A/B)")
+    print("d) Calcular la multiplicación (A*B)")
+    print("e) Calcular factorial (A!)")
+    return input("Ingrese una opción: ")
+
+def calculo_operaciones(a: int, b: int, operacion: str):
+    """
+    Realiza la operación matemática seleccionada utilizando los operandos dados.
 
     Args:
         a (int): El primer operando.
         b (int): El segundo operando.
-
-    Returns:
-        list: Una lista que contiene los resultados de todas las operaciones.
+        operacion (str): La operación a realizar (opciones: 'a', 'b', 'c', 'd', 'e').
     """
-    resultados = [sumar(a, b),
-        restar(a, b),
-        dividir(a, b),
-        multiplicar(a, b),
-        factorial(a),
-        factorial(b)]
-        
-    return resultados
+    if operacion == "a": 
+        return sumar(a, b)
+    elif operacion == "b": 
+        return restar(a, b)
+    elif operacion == "c":  
+        if b != 0:
+            return dividir(a, b)
+        else:
+            return "No es posible dividir por cero"
+    elif operacion == "d":  
+        return multiplicar(a, b)
+    elif operacion == "e": 
+        return factorial(a), factorial(b)
+    else:
+        return "Operación no válida"
     
-def informe_resultado(resultados):
+def informe_resultado(operacion, resultado, a=None, b=None):
     """
-    Muestra los resultados de las operaciones matemáticas.
-
-    Args:
-        resultados (list): Una lista que contiene los resultados de las operaciones.
+    Muestra el resultado de la operación seleccionada
     """
-    operaciones = ["A+B", "A-B", "A/B", "A*B", "factorial de A", "factorial de B"]
-    for i, operacion in enumerate(operaciones):
-        print(f"El resultado de {operacion} es: {resultados[i]}")
+    if operacion == 'a':
+        print(f"El resultado de {a}+{b} es: {resultado}")
+    elif operacion == 'b':
+        print(f"El resultado de {a}-{b} es: {resultado}")
+    elif operacion == 'c':
+        if resultado == 0:
+            print("no se puede dividir por cero")
+        else:
+            print(f"El resultado de {a}/{b} es: {resultado}")
+    elif operacion == 'd':
+        print(f"El resultado de {a}*{b} es: {resultado}")
+    elif operacion == 'e':
+        print(f"El factorial de {a} es: {resultado[0]} y El factorial de {b} es: {resultado[1]}")
+    else:
+        print("Operación no válida")
     
 def pausar():
     """

@@ -14,14 +14,17 @@ while True:
             b = operando2()
         case "3":
             if a is not None and b is not None:
-                resultados = calculo_operaciones(a, b)
+                operacion = menu_operaciones()
+                resultados = calculo_operaciones(a, b, operacion)
+               
+                print("Operación realizada.")
             else:
-                print("Debes ingresar ambos operandos antes de calcular las operaciones.")
+                print("Debes ingresar ambos operandos antes de realizar operaciones.")
         case "4":
             if resultados is not None:
-                informe_resultado(resultados)
+                informe_resultado(operacion, resultados, a, b)
             else:
-                print("Primero debes calcular las operaciones.")
+                print("Debes realizar una operación primero.")
         case "5":
             break
         
