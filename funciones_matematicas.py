@@ -18,19 +18,18 @@ def restar(a: int, b: int)->int:
         b (in): Segundo valor ingresado
 
     Returns:
-        int: Devuelve la resta estre lñe valor a y el valor b
+        int: Devuelve la resta entre el valor a y el valor b
     """
     return a - b
 
 def dividir(a: int, b: int)->float:
-    """_summary_
-
+    """Realiza una division del valor a sobre el valor b 
     Args:
         a (int): Primer valor ingresado (dividendo)
         b (int): Segundovalor ingresado (divisor)
 
     Returns:
-        float: Devuelve la divicion entre los valores ingresados (a/b)
+        float: Devuelve la division entre los valores ingresados (a/b)
     """
     if b == 0:
         return "No es posible dividir por cero"
