@@ -20,9 +20,9 @@ def menu(a, b)->str:
     print("4. Informar resultados")
     print("5- Salir")
     if a is not None:
-        print(f"Operando 1= {a}")
+        print(f"Operando A= {a}")
     if b is not None:
-        print(f"Operando 2= {b}")
+        print(f"Operando B= {b}")
     while True:
         opcion = input("Ingrese una opción: ")
         if opcion in ['1', '2', '3', '4', '5']:
