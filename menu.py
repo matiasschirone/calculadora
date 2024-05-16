@@ -10,7 +10,7 @@ def menu(a, b)->str:
         b (int): El valor actual del segundo operando (B).
 
     Returns:
-        str: La opción seleccionada por el usuario.
+        str: La opción seleccionada por el usuario. 
     """
     limpiar_pantalla()
     print(f"{'menu de opciones':^50s}")
@@ -20,10 +20,15 @@ def menu(a, b)->str:
     print("4. Informar resultados")
     print("5- Salir")
     if a is not None:
-        print(f"Operando 1 (A) = {a}")
+        print(f"Operando 1= {a}")
     if b is not None:
-        print(f"Operando 2 (B) = {b}")
-    return input("Ingrese una opcion: ")
+        print(f"Operando 2= {b}")
+    while True:
+        opcion = input("Ingrese una opción: ")
+        if opcion in ['1', '2', '3', '4', '5']:
+            return opcion
+        else:
+            print("Opción no válida. Por favor, seleccione una opción del menú.")
 
 def operando1():
     """
@@ -32,8 +37,12 @@ def operando1():
     Returns:
         int: El valor del primer operando ingresado por el usuario.
     """
-    a = int(input("Ingrese el valor de A: "))
-    return a
+    while True:
+        try:
+            a = int(input("Ingrese el valor de A: "))
+            return a
+        except ValueError:
+            print("Por favor, ingrese un valor entero válido para A.")
     
 def operando2():
     """
@@ -42,8 +51,12 @@ def operando2():
     Returns:
         int: El valor del segundo operando ingresado por el usuario.
     """
-    b = int(input("Ingrese el valor de B: "))
-    return b
+    while True:
+        try:
+            b = int(input("Ingrese el valor de B: "))
+            return b
+        except ValueError:
+            print("Por favor, ingrese un valor entero válido para B.")
     
     
 def menu_operaciones():
@@ -53,14 +66,20 @@ def menu_operaciones():
     Returns:
         str: La opción seleccionada por el usuario.
     """
-    limpiar_pantalla()
-    print(f"{'Menu de Operaciones':^50s}")
-    print("a) Calcular la suma (A+B)")
-    print("b) Calcular la resta (A-B)")
-    print("c) Calcular la división (A/B)")
-    print("d) Calcular la multiplicación (A*B)")
-    print("e) Calcular factorial (A!)")
-    return input("Ingrese una opción: ")
+    while True:
+        limpiar_pantalla()
+        print(f"{'Menu de Operaciones':^50s}")
+        print("a) Calcular la suma (A+B)")
+        print("b) Calcular la resta (A-B)")
+        print("c) Calcular la división (A/B)")
+        print("d) Calcular la multiplicación (A*B)")
+        print("e) Calcular factorial (A!)")
+
+        opcion = input("Ingrese una opción: ")
+        if opcion in ['a', 'b', 'c', 'd', 'e']:
+            return opcion
+        else:
+            print("Opción no válida. Por favor, seleccione una opción del menú.")
 
 def calculo_operaciones(a: int, b: int, operacion: str):
     """
@@ -71,21 +90,21 @@ def calculo_operaciones(a: int, b: int, operacion: str):
         b (int): El segundo operando.
         operacion (str): La operación a realizar (opciones: 'a', 'b', 'c', 'd', 'e').
     """
-    if operacion == "a": 
-        return sumar(a, b)
-    elif operacion == "b": 
-        return restar(a, b)
-    elif operacion == "c":  
-        if b != 0:
+    try:
+        if operacion == "a": 
+            return sumar(a, b)
+        elif operacion == "b": 
+            return restar(a, b)
+        elif operacion == "c":  
             return dividir(a, b)
+        elif operacion == "d":  
+            return multiplicar(a, b)
+        elif operacion == "e": 
+            return factorial(a), factorial(b)
         else:
-            return "No es posible dividir por cero"
-    elif operacion == "d":  
-        return multiplicar(a, b)
-    elif operacion == "e": 
-        return factorial(a), factorial(b)
-    else:
-        return "Operación no válida"
+            return "Operación no válida"
+    except ZeroDivisionError:
+        return "No es posible dividir por cero"
     
 def informe_resultado(operacion, resultado, a=None, b=None):
     """
@@ -96,16 +115,12 @@ def informe_resultado(operacion, resultado, a=None, b=None):
     elif operacion == 'b':
         print(f"El resultado de {a}-{b} es: {resultado}")
     elif operacion == 'c':
-        if resultado == 0:
-            print("no se puede dividir por cero")
-        else:
-            print(f"El resultado de {a}/{b} es: {resultado}")
+        print(f"El resultado de {a}/{b} es: {resultado}")
     elif operacion == 'd':
         print(f"El resultado de {a}*{b} es: {resultado}")
     elif operacion == 'e':
         print(f"El factorial de {a} es: {resultado[0]} y El factorial de {b} es: {resultado[1]}")
-    else:
-        print("Operación no válida")
+    
     
 def pausar():
     """

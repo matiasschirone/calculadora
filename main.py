@@ -16,7 +16,6 @@ while True:
             if a is not None and b is not None:
                 operacion = menu_operaciones()
                 resultados = calculo_operaciones(a, b, operacion)
-               
                 print("Operación realizada.")
             else:
                 print("Debes ingresar ambos operandos antes de realizar operaciones.")
