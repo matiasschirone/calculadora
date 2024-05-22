@@ -45,7 +45,7 @@ def multiplicar(a: int, b: int)->int:
     """
     return a * b
 
-def factorial(n):
+def factorial(n: int)-> int:
     """
     Calcula el factorial de un número entero n.
 
@@ -58,15 +58,10 @@ def factorial(n):
     """
     if n < 0:
         return "No se puede calcular el factorial de un número negativo"
-    if n == 0 or n == 1:
-        return 1
-    resultado = 1
-    for i in range(2, n + 1):
-        resultado *= i
-    return resultado
-
-# print (sumar(4,4))
-# print (restar(4,3))
-print (dividir(5,2))
-# print (factorial(4))
-# print (factorial(8))
+    fact = None
+    if n == 0 or n ==1:
+        fact = 1
+    else:
+        fact = n * factorial(n - 1)
+    return fact
+   
