@@ -75,7 +75,7 @@ def menu_operaciones():
         print("d) Calcular la multiplicación (A*B)")
         print("e) Calcular factorial (A!)")
 
-        opcion = input("Ingrese una opción: ")
+        opcion = input("Ingrese una opción: ").lower()
         if opcion in ['a', 'b', 'c', 'd', 'e']:
             return opcion
         else:
