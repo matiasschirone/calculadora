@@ -99,12 +99,18 @@ def calculo_operaciones(a: int, b: int, operacion: str):
             return dividir(a, b)
         elif operacion == "d":  
             return multiplicar(a, b)
-        elif operacion == "e": 
-            return factorial(a), factorial(b)
+        elif operacion == "e":
+            try:  
+                return factorial(a), factorial(b)
+            except ValueError as e:
+                print("ocurrio un error de tipo value")
+                print(e)
+            except TypeError as e:
+                print(e)
         else:
             return "Operación no válida"
-    except ZeroDivisionError:
-        return "No es posible dividir por cero"
+    except ZeroDivisionError as e:
+        return "Ocurrio un error. No es posible dividir por cero"
     
 def informe_resultado(operacion, resultado, a=None, b=None):
     """
